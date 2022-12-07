@@ -8,19 +8,20 @@ fetch('./data.json').then(function (result) {
     .then(function (data) {
         const result = data;
 
-        // for (let i = 0; i < result.length; i++) {
-        //     const element = result[i];
-        //     console.log(element);
-        //     document.getElementById('info').innerHTML +=
+        for (let i = 0; i < result.length; i++) {
+            const element = result[i];
+            console.log(element);
+            document.getElementById('info').innerHTML += `
 
-        //     "<p>"+element.num+"</p>" +
-        //     "<div>" +
-        //         "<p id='code'>"+element.chapters[0].id +"</p>"+
-        //         "<p id='date'>"+element.chapters[0].date  +"</p>"+
-        //         "<p id='scan'>"+element.chapters[0].scan  +"</p>"+
-        //         "<p id='scanuri'>"+element.chapters[0].scanuri  +"</p>"+
-        //     "</div>"
-        // }
+            <h4>${element.num}</h4> 
+            <div id='border'> 
+                <p id='code'>${element.chapters[0].id}</p>
+                <p id='date'>${element.chapters[0].date}</p>
+                <p id='scan'>${element.chapters[0].scan}</p>
+                <p id='scanuri'>${element.chapters[0].scanuri}</p>
+            </div>
+            `;
+        }
 
         dados = result;
     });
@@ -36,14 +37,16 @@ function showInfo() {
         console.log(element);
 
         if (numberToFind === element.num) {
-            document.getElementById('info').innerHTML =
-                "<p>" + element.num + "</p>" +
-                "<div>" +
-                "<p id='code'>"+element.chapters[0].id + "</p>" +
-                "<p id='date'>" + element.chapters[0].date + "</p>" +
-                "<p id='scan'>" + element.chapters[0].scan + "</p>" +
-                "<p id='scanuri'>" + element.chapters[0].scanuri + "</p>" +
-                "</div>"
+            document.getElementById('info').innerHTML = `
+
+            <h4>${element.num}</h4> 
+            <div id='border'> 
+                <p id='code'>${element.chapters[0].id}</p>
+                <p id='date'>${element.chapters[0].date}</p>
+                <p id='scan'>${element.chapters[0].scan}</p>
+                <p id='scanuri'>${element.chapters[0].scanuri}</p>
+            </div>
+            `;
         }
     }
 }
